@@ -1,8 +1,16 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./Components/Header";
 import ProductItem from "./Components/ProductItem";
+import Cart from "./Components/Cart";
+import CartContextProvider from "./store/CartContextProvider";
+
+
+
 
 function App() {
+
+  const[cartShow, setCartShow] = useState(false)
   const productList = [
     {
       title: "Colors",
@@ -42,10 +50,13 @@ function App() {
   ];
   return (
     <>
-      <Header></Header>
+    <CartContextProvider>
+    <Header onShow={setCartShow}/>
       <div className="productlist">
-      {productList.map((product)=><ProductItem product={product}></ProductItem>)}
+      { !cartShow && productList.map((product)=><ProductItem product={product}></ProductItem>)}
       </div>
+      {cartShow && <Cart onClose={setCartShow}></Cart>}
+      </CartContextProvider>
     </>
   );
 }

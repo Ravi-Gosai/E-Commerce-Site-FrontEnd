@@ -3,7 +3,21 @@
     height: 70px;
     background-color: rgb(82, 85, 85);
     position: fixed;
-    top : 0
+    top : 0;
+    display: flex;
+    align-items: center;
 
-    /* top : 6 */
+    
+}
+.cartbtndiv{
+   color: blue;
+   /* background-color: aquamarine; */
+   position: absolute;
+   right: 10px;
+  
+    
+}
+.cartbtn{
+    width: 146px;
+    height: 38px;
 }
