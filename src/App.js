@@ -1,41 +1,42 @@
-
 import "./App.css";
-import Header from "./Components/Header";
 
 
-import CartContextProvider from "./store/CartContextProvider";
-import Footer from "./Components/Footer";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Aboutpage from "./Components/AboutPage";
 import HomePage from "./Components/HomePage";
 import { useState } from "react";
-
-
-
-
-
+import RootOutLay from "./Components/RootLayOut";
+import WelComePage from "./Components/welpage/WelcomePage";
 
 function App() {
   const [cartShow, setCartShow] = useState(false);
 
   const router = createBrowserRouter([
-  
-    {path : '/', element : <HomePage cartShow={cartShow} setCartShow={setCartShow}></HomePage>},
-    {path:'/about' , element : <Aboutpage/>}
+    {
+      path : '/',
+      element : <RootOutLay setCartShow={setCartShow}/> ,
+      children :[
+        {
+          path : '/about',
+          element : <Aboutpage/>
+        },
+        {
+          path : '/',
+          element : <HomePage cartShow={cartShow} setCartShow={setCartShow}></HomePage>
+        },
+        {
+          path : '/welcome',
+          element : <WelComePage></WelComePage>
+        }
+      ]
+    }
   ])
- 
+
   return (
-    <>
+   
+      <RouterProvider router={router}></RouterProvider>
      
-      <CartContextProvider>
-        <Header onShow={setCartShow}  />
-    <RouterProvider router={router}>
-     
-    </RouterProvider>
-        <Footer></Footer>
-      </CartContextProvider>
-     
-    </>
+   
   );
 }
 
