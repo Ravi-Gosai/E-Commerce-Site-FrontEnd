@@ -1,44 +1,49 @@
+import { useState } from "react";
 import CartContext from "./cart-context";
 
 const CartContextProvider = (props) => {
-  const cartElements = [
-    {
-      title: "Colors",
+  const [cartProduct, setCartProduct] = useState([]);
 
-      price: 100,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-
-      quantity: 2,
-    },
-
-    {
-      title: "Black and white Colors",
-
-      price: 50,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-
-      quantity: 3,
-    },
-
-    {
-      title: "Yellow and Black Colors",
-
-      price: 70,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-
-      quantity: 1,
-    },
-  ];
+  const addCartFun = (item) => {
+    // console.log(item)
+    const checkProduct = cartProduct.find(
+      (product) => item.title === product.title
+    );
+    if (checkProduct === undefined) {
+      setCartProduct([...cartProduct, item]);
+    } else {
+      setCartProduct(() => {
+        const currCartList = [...cartProduct];
+        const index = currCartList.findIndex(
+          (product) => item.title === product.title
+        );
+        // console.log(index)
+        currCartList[index].quantity = currCartList[index].quantity + 1;
+        return currCartList;
+      });
+    }
+    // console.log(cartProduct)
+  };
+  const removeFromCartFun = (item)=>{
+    console.log(item)
+    setCartProduct(()=>{
+      const index = cartProduct.findIndex((product)=>product.title === item.title)
+      // console.log(index)
+      const upadateCartlist = [...cartProduct]
+      upadateCartlist.splice(index,1)
+      return upadateCartlist
+    })
+  }
 
   const cartproduct = {
-    cartProduct: cartElements,
+    addCartFun: addCartFun,
+    removeFromCart:removeFromCartFun,
+    cartProduct: cartProduct,
   };
-  return <CartContext.Provider value={cartproduct}>{props.children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider value={cartproduct}>
+      {props.children}
+    </CartContext.Provider>
+  );
 };
 export default CartContextProvider;

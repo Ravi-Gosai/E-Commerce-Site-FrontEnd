@@ -5,13 +5,14 @@ import CartItem from "./CartItem";
 
 const Cart = props =>{
     const cartCtx = useContext(CartContext)
-    console.log(cartCtx)
+    
     return(
     <div className={classes.cartdiv}>
-    <div><h2 className={classes.h2}><span className={classes.span}> item</span> <span className={classes.span}>price</span> <sapn className={classes.span}>quantity</sapn></h2></div> 
+         <button onClick={()=>props.onClose(false)}>Close</button>
+    <div><h2 className={classes.h2}><span className={classes.span}> item</span> <span className={classes.span}>price</span> <span className={classes.span}>quantity</span></h2></div> 
 
-    {cartCtx.cartProduct.map((cartProduct)=><CartItem product={cartProduct}></CartItem>)}
-        <button onClick={()=>props.onClose(false)}>Close</button>
+    {cartCtx.cartProduct.map((cartProduct)=><CartItem key={cartProduct.title} product={cartProduct}></CartItem>)}
+       
     </div>
 
     )

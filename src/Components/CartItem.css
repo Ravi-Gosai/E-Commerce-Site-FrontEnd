@@ -7,3 +7,17 @@
     align-items: center;
     margin : 20px 0px;
 }
+
+input{
+    width: 50px;
+}
+.indiv{
+   background-color: beige;
+    width: 224px;
+    height: 156px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-bottom: 2px solid black;
+}
