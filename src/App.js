@@ -7,6 +7,7 @@ import HomePage from "./Components/HomePage";
 import { useState } from "react";
 import RootOutLay from "./Components/RootLayOut";
 import WelComePage from "./Components/welpage/WelcomePage";
+import ContactUsPage from "./Components/ContactUsPage";
 
 function App() {
   const [cartShow, setCartShow] = useState(false);
@@ -27,6 +28,10 @@ function App() {
         {
           path : '/welcome',
           element : <WelComePage></WelComePage>
+        },
+        {
+          path : '/contactUs',
+          element : <ContactUsPage></ContactUsPage>
         }
       ]
     }
