@@ -3,12 +3,13 @@ import CartContextProvider from "../store/CartContextProvider";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const RootOutLay = ({setCartShow})=>{
+const RootOutLay = ({setCartShow,children})=>{
     return (
         <>
              <CartContextProvider>
              <Header onShow={setCartShow} />
-             <Outlet/>
+             {/* <Outlet/> */}
+             {children}
              <Footer />
              </CartContextProvider>
         </>
