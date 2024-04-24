@@ -27,9 +27,9 @@ const totalQunantity = cartCtx.cartProduct.reduce((intial, product)=>{
        {authCtx.isLoggedIn && <button onClick={logoutHandler}>logout</button> }
 
         </ul>
-        <div className={classes.cartbtndiv}>
+        {authCtx.isLoggedIn && <div className={classes.cartbtndiv}>
             <button className={classes.cartbtn} onClick={()=>props.onShow(true)}>My Cart {totalQunantity}</button>
-        </div>
+        </div>}
     </div>
 }
 export default Header;

@@ -13,7 +13,7 @@ import AuthPage from "./Components/AuthPage";
 import AuthContext from "./store/auth-context";
 
 function App() {
-  const [cartShow, setCartShow] = useState(false);
+  // const [cartShow, setCartShow] = useState(false);
 
   const authCtx = useContext(AuthContext)
 
@@ -54,7 +54,7 @@ function App() {
       </Route>
       <Route path='/about' element={ <Aboutpage/> }></Route>
       
-      {authCtx.isLoggedIn && <Route path='/home' element={ <HomePage cartShow={cartShow} setCartShow={setCartShow}/>}></Route>}
+      {authCtx.isLoggedIn && <Route path='/home' element={ <HomePage />}></Route>}
       {!authCtx.isLoggedIn && <Route path='/home' element={ <Navigate to='/login' />}></Route>}
       {!authCtx.isLoggedIn && <Route path='/login' element={<AuthPage></AuthPage> }></Route>}
       <Route path='/welcome' element={ <WelComePage/>}></Route>
