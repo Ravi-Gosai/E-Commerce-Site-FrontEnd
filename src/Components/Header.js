@@ -24,7 +24,7 @@ const totalQunantity = cartCtx.cartProduct.reduce((intial, product)=>{
         <NavLink to='/about'> <li className={classes.li}>about</li></NavLink>
         <NavLink to='/welcome'> <li className={classes.li}>Welcome page</li></NavLink>
         { !authCtx.isLoggedIn && <NavLink to='/login'> <li className={classes.li}>login</li></NavLink>}
-       {authCtx.isLoggedIn && <button onClick={logoutHandler}>logout</button> }
+       {authCtx.isLoggedIn && <button className={classes.logoutbtn} onClick={logoutHandler}>logout</button> }
 
         </ul>
         {authCtx.isLoggedIn && <div className={classes.cartbtndiv}>

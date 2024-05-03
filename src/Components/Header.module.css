@@ -40,3 +40,8 @@ a{
 .red li{
     color: red;
 }
+.logoutbtn{
+    height: 50px;
+    width: 60px;
+    margin: 27px;
+}

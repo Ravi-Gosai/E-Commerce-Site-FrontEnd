@@ -8,6 +8,7 @@ const Cart = props =>{
     
     return(
     <div className={classes.cartdiv}>
+         <button onClick={()=> alert('order is done')}>order</button>
          <button onClick={()=>props.onClose(false)}>Close</button>
     <div><h2 className={classes.h2}><span className={classes.span}> item</span> <span className={classes.span}>price</span> <span className={classes.span}>quantity</span></h2></div> 
 
